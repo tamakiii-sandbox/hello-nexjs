@@ -6,7 +6,12 @@ import utilStyles from '../styles/utils.module.css'
 const name = 'tamakiii'
 export const siteTitle = 'Next.js Sample Webpage'
 
-export default function Layout({ children, home }) {
+interface Props {
+  children: React.ReactNode
+  home?: React.ReactNode
+}
+
+export default function Layout({ children, home }: Props) {
   return (
     <div className={styles.contianer}>
       <Head>
@@ -44,7 +49,7 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">← Back to Home</Link>
+          <Link href="/"><a>← Back to Home</a></Link>
         </div>
       )}
     </div>
